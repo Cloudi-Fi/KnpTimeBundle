@@ -54,6 +54,30 @@
                 <source>diff.in.year</source>
                 <target>dans 1 an|dans %count% ans</target>
             </trans-unit>
+            <trans-unit id="14">
+                <source>diff.during.year</source>
+                <target>pendant 1 an|pendant %count% ans</target>
+            </trans-unit>
+            <trans-unit id="15">
+                <source>diff.during.month</source>
+                <target>pendant 1 mois|pendant %count% mois</target>
+            </trans-unit>
+            <trans-unit id="16">
+                <source>diff.during.day</source>
+                <target>pendant 1 jour|pendant %count% jours</target>
+            </trans-unit>
+            <trans-unit id="17">
+                <source>diff.during.hour</source>
+                <target>pendant 1 heure|pendant %count% heures</target>
+            </trans-unit>
+            <trans-unit id="18">
+                <source>diff.during.minute</source>
+                <target>pendant 1 minute|pendant %count% minutes</target>
+            </trans-unit>
+            <trans-unit id="19">
+                <source>diff.during.second</source>
+                <target>pendant 1 seconde|pendant %count% secondes</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>

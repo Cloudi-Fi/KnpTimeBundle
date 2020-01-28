@@ -38,10 +38,15 @@ class TimeExtension extends AbstractExtension
     {
         return array(
             new TwigFunction(
-                    'time_diff', 
-                    array($this, 'diff'), 
-                    array('is_safe' => array('html'))
-                ),
+                'time_diff',
+                array($this, 'diff'),
+                array('is_safe' => array('html'))
+            ),
+            new TwigFunction(
+                'time_duration',
+                array($this, 'duration'),
+                array('is_safe' => array('html'))
+            ),
         );
     }
 
@@ -49,16 +54,26 @@ class TimeExtension extends AbstractExtension
     {
         return array(
             new TwigFilter(
-                    'ago', 
-                    array($this, 'diff'), 
-                    array('is_safe' => array('html'))
-                ),
+                'ago',
+                array($this, 'diff'),
+                array('is_safe' => array('html'))
+            ),
+            new TwigFilter(
+                'duration',
+                array($this, 'duration'),
+                array('is_safe' => array('html'))
+            ),
         );
     }
 
     public function diff($since = null, $to = null)
     {
         return $this->helper->diff($since, $to);
+    }
+    
+    public function duration($since = null, $to = null)
+    {
+        return $this->helper->duration($since, $to);
     }
 
     /**

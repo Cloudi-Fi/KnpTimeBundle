@@ -30,7 +30,24 @@ class TimeHelper extends Helper
         $from = $this->getDatetimeObject($from);
         $to = $this->getDatetimeObject($to);
 
-        return $this->formatter->formatDiff($from, $to);
+        return $this->formatter->formatDiff($from, $to, $format);
+    }
+    
+    /**
+     * Returns a single number of years, months, days, hours, minutes or
+     * seconds between the specified date times.
+     *
+     * @param  mixed $since The datetime for which the diff will be calculated
+     * @param  mixed $since The datetime from which the diff will be calculated
+     *
+     * @return string
+     */
+    public function duration($from, $to = null)
+    {
+        $from = $this->getDatetimeObject($from);
+        $to = $this->getDatetimeObject($to);
+
+        return $this->formatter->formatDiff($from, $to, 'duration');
     }
 
     /**

@@ -27,7 +27,7 @@ class DateTimeFormatter
      *
      * @return string
      */
-    public function formatDiff(DateTimeInterface $from, DateTimeInterface $to)
+    public function formatDiff(DateTimeInterface $from, DateTimeInterface $to, $format = 'diff')
     {
         static $units = array(
             'y' => 'year',
@@ -43,7 +43,7 @@ class DateTimeFormatter
         foreach ($units as $attribute => $unit) {
             $count = $diff->$attribute;
             if (0 !== $count) {
-                return $this->doGetDiffMessage($count, $diff->invert, $unit);
+                return $this->doGetDiffMessage($count, $diff->invert, $unit, $format);
             }
         }
 
@@ -60,7 +60,7 @@ class DateTimeFormatter
      *
      * @return string
      */
-    public function getDiffMessage($count, $invert, $unit)
+    public function getDiffMessage($count, $invert, $unit, $format = 'diff')
     {
         if (0 === $count) {
             throw new \InvalidArgumentException('The count must not be null.');
@@ -72,12 +72,16 @@ class DateTimeFormatter
             throw new \InvalidArgumentException(sprintf('The unit \'%s\' is not supported.', $unit));
         }
 
-        return $this->doGetDiffMessage($count, $invert, $unit);
+        return $this->doGetDiffMessage($count, $invert, $unit, $format = 'diff');
     }
 
-    protected function doGetDiffMessage($count, $invert, $unit)
+    protected function doGetDiffMessage($count, $invert, $unit, $format = 'diff')
     {
-        $id = sprintf('diff.%s.%s', $invert ? 'ago' : 'in', $unit);
+        if ($format === 'diff') {
+            $format = $invert ? 'ago' : 'in';
+        }
+        
+        $id = sprintf('diff.%s.%s', $format, $unit);
 
         // check for Symfony >= 4.2
         if (class_exists('Symfony\Component\Translation\Formatter\IntlFormatter')) {
