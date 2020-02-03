@@ -44,7 +44,7 @@ class TimeExtension extends AbstractExtension
             ),
             new TwigFunction(
                 'time_duration',
-                array($this, 'duration'),
+                array($this, 'during'),
                 array('is_safe' => array('html'))
             ),
         );
@@ -59,8 +59,8 @@ class TimeExtension extends AbstractExtension
                 array('is_safe' => array('html'))
             ),
             new TwigFilter(
-                'duration',
-                array($this, 'duration'),
+                'during',
+                array($this, 'during'),
                 array('is_safe' => array('html'))
             ),
         );
@@ -71,9 +71,9 @@ class TimeExtension extends AbstractExtension
         return $this->helper->diff($since, $to);
     }
     
-    public function duration($since = null, $to = null)
+    public function during($since = null, $to = null)
     {
-        return $this->helper->duration($since, $to);
+        return $this->helper->during($since, $to);
     }
 
     /**
