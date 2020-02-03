@@ -30,7 +30,7 @@ class TimeHelper extends Helper
         $from = $this->getDatetimeObject($from);
         $to = $this->getDatetimeObject($to);
 
-        return $this->formatter->formatDiff($from, $to, $format);
+        return $this->formatter->formatDiff($from, $to);
     }
     
     /**
