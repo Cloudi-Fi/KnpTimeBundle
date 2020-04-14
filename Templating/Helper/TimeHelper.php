@@ -30,7 +30,7 @@ class TimeHelper extends Helper
         $from = $this->getDatetimeObject($from);
         $to = $this->getDatetimeObject($to);
 
-        return $this->formatter->formatDiff($from, $to, $format);
+        return $this->formatter->formatDiff($from, $to);
     }
     
     /**
@@ -42,12 +42,12 @@ class TimeHelper extends Helper
      *
      * @return string
      */
-    public function duration($from, $to = null)
+    public function during($from, $to = null)
     {
         $from = $this->getDatetimeObject($from);
         $to = $this->getDatetimeObject($to);
 
-        return $this->formatter->formatDiff($from, $to, 'duration');
+        return $this->formatter->formatDiff($from, $to, 'during');
     }
 
     /**
