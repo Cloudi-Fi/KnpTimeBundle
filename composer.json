@@ -1,5 +1,5 @@
 {
-    "name":        "knplabs/knp-time-bundle",
+    "name":        "cloudifi/knp-time-bundle",
     "type":        "symfony-bundle",
     "description": "Knplabs time bundle makes your dates look sensible and descriptive",
     "keywords":    ["time", "date", "descriptive time", "knplabs", "knp", "bundle"],
